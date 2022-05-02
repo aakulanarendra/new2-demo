@@ -1,0 +1,40 @@
+version: '1'
+steps:
+- name: build
+  template:
+    name: build
+- name: publish_docker
+  template:
+    name: docker
+    vars:
+      docker_path: sdf
+      docker_file: ./Dockerfile
+      modules:
+      - sfgf
+- name: deploy
+  template:
+    name: deploy
+    vars:
+      tap_environment:
+      - stage
+      - perf
+      - prod
+      tap_application: sfgf
+      tap_clusters:
+      - fsgfd
+- name: slack
+  template:
+    name: slack
+templates:
+- name: build
+  source: git.target.com/putaway/putaway-vela-template/build/template.yml@main
+  type: github
+- name: docker
+  source: git.target.com/putaway/putaway-vela-template/docker/template.yml@main
+  type: github
+- name: deploy
+  source: git.target.com/putaway/putaway-vela-template/deploy/template.yml@main
+  type: github
+- name: slack
+  source: git.target.com/putaway/putaway-vela-template/slack/template.yml@main
+  type: github
