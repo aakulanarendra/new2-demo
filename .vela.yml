@@ -7,10 +7,10 @@ steps:
   template:
     name: docker
     vars:
-      docker_path: sdf
+      docker_path: dg
       docker_file: ./Dockerfile
       modules:
-      - sfgf
+      - dg
 - name: deploy
   template:
     name: deploy
@@ -19,9 +19,9 @@ steps:
       - stage
       - perf
       - prod
-      tap_application: sfgf
+      tap_application: dg
       tap_clusters:
-      - fsgfd
+      - gd
 - name: slack
   template:
     name: slack

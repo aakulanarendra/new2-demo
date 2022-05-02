@@ -1,0 +1,16 @@
+constraints:
+  proxy: disabled
+loadBalancerType: http
+deployment:
+  image:
+    name: dg
+    organization: dg
+  port: 8080
+  healthCheck:
+    path: /health
+    type: HTTP
+    failureThreshold: 3
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1

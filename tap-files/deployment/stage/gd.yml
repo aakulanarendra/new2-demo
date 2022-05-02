@@ -1,0 +1,14 @@
+name: dg-stage
+environment: dev
+deployment:
+  cpuMilliCores: 1500
+  memoryMi: 2048
+  regionalCapacity:
+    ttc:
+      min: 2
+      max: 2
+      desired: 2
+    tte:
+      min: 2
+      max: 2
+      desired: 2
